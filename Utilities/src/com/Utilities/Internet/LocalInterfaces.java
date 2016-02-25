@@ -1,3 +1,8 @@
+/**
+ * LocalInterfaces.java
+ * Created on Feb 25, 2016, 9:12:48 PM
+ * Copyright(c) Frobas d.o.o.
+ */
 package com.Utilities.Internet;
 
 import java.net.NetworkInterface;
@@ -6,26 +11,20 @@ import java.util.ArrayList;
 import java.util.Enumeration;
 
 /**
+ * Generating list of local interfaces
  *
  * @author Vladimir Roncevic <vladimir.roncevic@frobas.com
  */
 public class LocalInterfaces {
 
-    /**
-     * listInterfaces return array list of interfaces
-     *
-     * @return array list of interfaces
-     */
     public static ArrayList<InterfaceInfo> listInterfaces() {
         Enumeration<NetworkInterface> interfaces = null;
         ArrayList<InterfaceInfo> listofinterfaces = new ArrayList<>();
-
         try {
             interfaces = NetworkInterface.getNetworkInterfaces();
         } catch (SocketException ex) {
 
         }
-
         while (interfaces.hasMoreElements()) {
             NetworkInterface ni = interfaces.nextElement();
             InterfaceInfo info = new InterfaceInfo();

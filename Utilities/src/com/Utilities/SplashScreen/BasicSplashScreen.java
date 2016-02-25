@@ -1,3 +1,8 @@
+/**
+ * Application.java
+ * Created on Feb 25, 2016, 2:17:52 PM
+ * Copyright(c) Frobas d.o.o.
+ */
 package com.Utilities.SplashScreen;
 
 import java.awt.Graphics;
@@ -15,45 +20,28 @@ import javax.swing.JWindow;
  */
 public class BasicSplashScreen extends JWindow {
 
-    /**
-     * Buffered splash image from resource
-     */
+    private static final long serialVersionUID = -6721489511713742356L;
     private BufferedImage bufferedImg;
-
-    /**
-     * Image icon for splash screen
-     */
     private ImageIcon img;
-    
-    /**
-     * Basic Splash Screen
-     *
-     * @param duration of splash screen
-     * @param AppClass parent class
-     */
+
     public BasicSplashScreen(int duration, Object AppClass) {
         try {
-            bufferedImg
+            this.bufferedImg
                     = ImageIO.read(AppClass.getClass().getResource("/resource/splashscreen.png"));
         } catch (IOException ex) {
         }
-        img = new ImageIcon(bufferedImg);
-        setSize(img.getIconWidth(), img.getIconHeight());
-        setBackground(getBackground());
-        setVisible(true);
+        this.img = new ImageIcon(bufferedImg);
+        super.setSize(img.getIconWidth(), img.getIconHeight());
+        super.setBackground(super.getBackground());
+        super.setVisible(true);
         try {
             Thread.sleep(duration);
         } catch (Exception e) {
         }
-        setVisible(false);
-        dispose();
+        super.setVisible(false);
+        super.dispose();
     }
 
-    /**
-     * Paint Image from resource
-     *
-     * @param g
-     */
     @Override
     public void paint(Graphics g) {
         int curW = img.getIconWidth();

@@ -1,3 +1,8 @@
+/**
+ * Session.java
+ * Created on Feb 25, 2016, 21:34:52 PM
+ * Copyright(c) Frobas d.o.o.
+ */
 package com.Utilities.AppConfig;
 
 import com.thoughtworks.xstream.XStream;
@@ -11,7 +16,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * Creating, Reading and Saving configuration of APP
+ * Creating, Reading and Saving configuration of Application
  *
  * @author Vladimir Roncevic <vladimir.roncevic@frobas.com>
  */
@@ -19,12 +24,6 @@ abstract public class Session {
 
     private String config;
 
-    /**
-     * Creating Session file
-     *
-     * @param CfgDir path for APP configuration
-     * @param CfgFile path to CFG file
-     */
     public Session(String CfgDir, String CfgFile) {
         String configDir = System.clearProperty("user.home") + "/" + CfgDir;
         String configure = configDir + "/" + CfgFile;
@@ -46,16 +45,11 @@ abstract public class Session {
         }
     }
 
-    /**
-     * Write class to configuration file
-     *
-     * @param obj class for writing
-     */
     public void write(Object obj) {
         try {
-            if ((obj != null) && (config != null)) {
+            if ((obj != null) && (this.config != null)) {
                 XStream xs = new XStream();
-                FileOutputStream fis = new FileOutputStream(config);
+                FileOutputStream fis = new FileOutputStream(this.config);
                 xs.toXML(obj, fis);
             }
         } catch (IOException ex) {
@@ -63,19 +57,13 @@ abstract public class Session {
         }
     }
 
-    /**
-     * Read from configuration file and create class
-     *
-     * @param defaultcfg
-     * @return Object class with configuration
-     */
     public Object read(Object defaultcfg) {
         Object obj = null;
         InputStream fis = null;
         FileReader fileReader;
         try {
-            if (config != null) {
-                fileReader = new FileReader(config);
+            if (this.config != null) {
+                fileReader = new FileReader(this.config);
                 XStream xs = new XStream(new DomDriver());
                 if (obj == null) {
                     BufferedReader br = new BufferedReader(fileReader);
@@ -101,12 +89,6 @@ abstract public class Session {
         return (obj);
     }
 
-    /**
-     * Check existing configuration file
-     *
-     * @param config absolute path
-     * @return true for exist else false
-     */
     private boolean checkConfig(String config) {
         return new File(config).exists();
     }

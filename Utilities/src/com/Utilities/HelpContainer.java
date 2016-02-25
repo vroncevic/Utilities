@@ -1,3 +1,8 @@
+/**
+ * HelpContainer.java
+ * Created on Feb 25, 2016, 21:27:52 PM
+ * Copyright(c) Frobas d.o.o.
+ */
 package com.Utilities;
 
 import java.io.BufferedReader;
@@ -13,15 +18,10 @@ import javax.swing.ImageIcon;
  */
 public class HelpContainer extends FormContainer {
 
-    /**
-     * Initial constructor
-     *
-     * @param AppClass parent class
-     */
     public HelpContainer(Object AppClass) {
         super();
-        setAppLogo(new ImageIcon(AppClass.getClass().getResource("/resource/logo.png")));
-        setAppIcon(new ImageIcon(AppClass.getClass().getResource("/resource/icon.png")));
+        super.setAppLogo(new ImageIcon(AppClass.getClass().getResource("/resource/logo.png")));
+        super.setAppIcon(new ImageIcon(AppClass.getClass().getResource("/resource/icon.png")));
         InputStream helper = AppClass.getClass().getResourceAsStream("/resource/help");
         StringBuilder s = new StringBuilder();
         InputStreamReader isr;
@@ -39,19 +39,9 @@ public class HelpContainer extends FormContainer {
         } catch (IOException ex) {
 
         }
-        setAppInfo(s.toString());
+        super.setAppInfo(s.toString());
     }
 
-    /**
-     * Constructor with parameters
-     *
-     * @param Title string
-     * @param CompanyName string
-     * @param AppName string
-     * @param AppInfo string
-     * @param AppLogo image icon
-     * @param AppIcon image icon
-     */
     public HelpContainer(String Title, String CompanyName, String AppName,
             String AppInfo, ImageIcon AppLogo, ImageIcon AppIcon) {
         super(Title, CompanyName, AppName, AppInfo, AppLogo, AppIcon);

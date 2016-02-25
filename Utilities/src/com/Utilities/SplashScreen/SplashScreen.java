@@ -1,3 +1,8 @@
+/**
+ * Application.java
+ * Created on Feb 25, 2016, 2:17:52 PM
+ * Copyright(c) Frobas d.o.o.
+ */
 package com.Utilities.SplashScreen;
 
 import java.awt.Dimension;
@@ -22,33 +27,11 @@ import javax.swing.UnsupportedLookAndFeelException;
 public class SplashScreen extends JFrame {
 
     private static final long serialVersionUID = 1796199089874569271L;
-
-    /**
-     * Splash progress bar
-     */
     private JProgressBar splashBar;
-    
-    /**
-     * Buffered splash image from resource
-     */
     private BufferedImage bufferedImg;
-    
-    /**
-     * Image icon for splash screen
-     */
     private ImageIcon img;
-    
-    /**
-     * Label for splash image
-     */
     private JLabel splashImage;
 
-    /**
-     * SplashScreen constructor with time delay and parent class
-     *
-     * @param sleep
-     * @param AppClass
-     */
     public SplashScreen(int sleep, Object AppClass) {
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
@@ -56,43 +39,41 @@ public class SplashScreen extends JFrame {
                 IllegalAccessException | UnsupportedLookAndFeelException e) {
 
         }
-        setUndecorated(true);
+        super.setUndecorated(true);
         try {
             bufferedImg = 
                     ImageIO.read(AppClass.getClass().getResource("/resource/splashscreen.jpg"));
         } catch (IOException ex) {
             
         }
-        img = new ImageIcon(bufferedImg);
-        splashImage = new JLabel(img);
-        splashImage.setSize(img.getIconWidth(), img.getIconHeight());
-        splashBar = new JProgressBar(0, 100);
-        splashBar.setSize(new Dimension(img.getIconWidth(), 10));
-        JSplitPane spliter = 
-                new JSplitPane(JSplitPane.VERTICAL_SPLIT, new JScrollPane(splashBar), new JScrollPane(splashImage));
+        this.img = new ImageIcon(bufferedImg);
+        this.splashImage = new JLabel(img);
+        this.splashImage.setSize(img.getIconWidth(), img.getIconHeight());
+        this.splashBar = new JProgressBar(0, 100);
+        this.splashBar.setSize(new Dimension(img.getIconWidth(), 10));
+        JSplitPane spliter = new JSplitPane(
+                JSplitPane.VERTICAL_SPLIT, 
+                new JScrollPane(splashBar), 
+                new JScrollPane(splashImage));
         spliter.setEnabled(false);
-        add(spliter);
-        setSize(img.getIconWidth() + 8, img.getIconHeight() + 38);
-        java.net.URL imageIconApp = 
-                SplashScreen.class.getResource("/resource/icon.png");
+        super.add(spliter);
+        super.setSize(img.getIconWidth() + 8, img.getIconHeight() + 38);
+        java.net.URL imageIconApp = SplashScreen.class.getResource("/resource/icon.png");
         ImageIcon icon = new ImageIcon(imageIconApp);
-        setIconImage(icon.getImage());
-        setResizable(false);
+        super.setIconImage(icon.getImage());
+        super.setResizable(false);
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        setLocation(dim.width / 4, dim.height / 4);
-        setVisible(true);
+        super.setLocation(dim.width / 4, dim.height / 4);
+        super.setVisible(true);
         new Thread(new SplashTimer()).start();
         try {
             Thread.sleep(sleep);
         } catch (Exception e) {
 
         }
-        dispose();
+        super.dispose();
     }
 
-    /**
-     * Splash timer class
-     */
     public class SplashTimer implements Runnable {
 
         @Override
@@ -103,6 +84,7 @@ public class SplashScreen extends JFrame {
                 try {
                     Thread.sleep(25);
                 } catch (InterruptedException err) {
+                    
                 }
             }
         }

@@ -1,3 +1,8 @@
+/**
+ * FormContainer.java
+ * Created on Feb 25, 2016, 21:27:52 PM
+ * Copyright(c) Frobas d.o.o.
+ */
 package com.Utilities;
 
 import javax.swing.ImageIcon;
@@ -16,9 +21,6 @@ abstract public class FormContainer {
     private ImageIcon AppLogo;
     private ImageIcon AppIcon;
 
-    /**
-     * Default initial constructor
-     */
     public FormContainer() {
         this.Title = null;
         this.CompanyName = null;
@@ -28,16 +30,6 @@ abstract public class FormContainer {
         this.AppIcon = null;
     }
 
-    /**
-     * Constructor with parameters
-     *
-     * @param Title string
-     * @param CompanyName string
-     * @param AppName string
-     * @param AppInfo string
-     * @param AppLogo image icon
-     * @param AppIcon image icon
-     */
     public FormContainer(String Title, String CompanyName, String AppName, 
             String AppInfo, ImageIcon AppLogo, ImageIcon AppIcon) {
         this.Title = Title;
@@ -48,110 +40,50 @@ abstract public class FormContainer {
         this.AppIcon = AppIcon;
     }
 
-    /**
-     * Get Application Title
-     *
-     * @return string
-     */
     public String getTitle() {
         return Title;
     }
 
-    /**
-     * Set Application Title
-     *
-     * @param Title string
-     */
     public void setTitle(String Title) {
         this.Title = Title;
     }
 
-    /**
-     * Get Application name
-     *
-     * @return string
-     */
     public String getCompanyName() {
         return CompanyName;
     }
 
-    /**
-     * Set Company Name
-     *
-     * @param CompanyName string
-     */
     public void setCompanyName(String CompanyName) {
         this.CompanyName = CompanyName;
     }
 
-    /**
-     * Get Application Name
-     *
-     * @return string
-     */
     public String getAppName() {
         return AppName;
     }
 
-    /**
-     * Set Application Name
-     *
-     * @param AppName string
-     */
     public void setAppName(String AppName) {
         this.AppName = AppName;
     }
 
-    /**
-     * Get Application Info text
-     *
-     * @return string
-     */
     public String getAppInfo() {
         return AppInfo;
     }
 
-    /**
-     * Set Application Info text
-     *
-     * @param AppInfo string
-     */
     public void setAppInfo(String AppInfo) {
         this.AppInfo = AppInfo;
     }
 
-    /**
-     * Get Application Logo
-     *
-     * @return image icon
-     */
     public ImageIcon getAppLogo() {
         return AppLogo;
     }
 
-    /**
-     * Set Application Logo
-     *
-     * @param AppLogo image icon
-     */
     public void setAppLogo(ImageIcon AppLogo) {
         this.AppLogo = AppLogo;
     }
 
-    /**
-     * Get Application Icon
-     *
-     * @return image icon
-     */
     public ImageIcon getAppIcon() {
         return AppIcon;
     }
 
-    /**
-     * Set Application Icon
-     *
-     * @param AppIcon image icon
-     */
     public void setAppIcon(ImageIcon AppIcon) {
         this.AppIcon = AppIcon;
     }

@@ -1,3 +1,8 @@
+/**
+ * About.java
+ * Created on Feb 25, 2016, 21:33:52 PM
+ * Copyright(c) Frobas d.o.o.
+ */
 package com.Utilities.About;
 
 import com.Utilities.AboutContainer;
@@ -13,26 +18,21 @@ import javax.swing.JFrame;
  * @author Vladimir Roncevic <vladimir.roncevic@frobas.com>
  */
 public class About extends javax.swing.JFrame {
-    
+
     private static final long serialVersionUID = -4772400194263230645L;
 
-    /**
-     * Creates new form About
-     *
-     * @param content for About frame
-     */
     public About(AboutContainer content) {
         initComponents();
         this.LogoLabel.setIcon(content.getAppLogo());
         this.CompanyName.setText(content.getCompanyName());
         this.AppName.setText(content.getAppName());
         this.AppInfo.setText(content.getAppInfo());
-        setTitle(content.getTitle());
-        setIconImage(content.getAppIcon().getImage());
+        super.setTitle(content.getTitle());
+        super.setIconImage(content.getAppIcon().getImage());
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        addWindowListener(new WindowAdapter() {
+        super.setLocation(dim.width / 2 - super.getSize().width / 2, dim.height / 2 - super.getSize().height / 2);
+        super.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        super.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
                 setVisible(false);
@@ -108,7 +108,7 @@ public class About extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(CompanyName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(AppName, javax.swing.GroupLayout.PREFERRED_SIZE, 200, Short.MAX_VALUE))
+                    .addComponent(AppName, javax.swing.GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE))
                 .addGap(30, 30, 30))
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)

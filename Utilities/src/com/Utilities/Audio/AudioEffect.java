@@ -1,3 +1,8 @@
+/**
+ * AudioEffect.java
+ * Created on Feb 25, 2016, 21:34:52 PM
+ * Copyright(c) Frobas d.o.o.
+ */
 package com.Utilities.Audio;
 
 import java.io.File;
@@ -18,12 +23,6 @@ public class AudioEffect {
 
     public static int EXTERNAL_BUFFER_SIZE = 524288;
 
-    /**
-     * Play function
-     *
-     * @param filename
-     * @return integer value 0 for success else -1
-     */
     public static int play(String filename) {
         File soundFile = new File(filename);
         if (!soundFile.exists()) {
@@ -39,17 +38,9 @@ public class AudioEffect {
             AudioFormat format;
             format = audioInputStream.getFormat();
             SourceDataLine auline = null;
-            /**
-             * Describe a desired line
-             */
             DataLine.Info info = new DataLine.Info(SourceDataLine.class, format);
             try {
                 auline = (SourceDataLine) AudioSystem.getLine(info);
-                /* 
-                 * Opens the line with the specified format,  
-                 * causing the line to acquire any required  
-                 * system resources and become operational.  
-                 */
                 if (format != null) {
                     auline.open(format);
                 } else {
@@ -58,9 +49,6 @@ public class AudioEffect {
             } catch (Exception e) {
 
             }
-            /**
-             * Allows a line to engage in data I/O
-             */
             if (auline != null) {
                 auline.start();
                 int nBytesRead = 0;
@@ -69,26 +57,13 @@ public class AudioEffect {
                     while (nBytesRead != -1) {
                         nBytesRead = audioInputStream.read(abData, 0, abData.length);
                         if (nBytesRead >= 0) {
-                            /**
-                             * Writes audio data to the mixer via this source
-                             * data line NOTE : A mixer is an audio device with
-                             * one or more lines
-                             */
                             auline.write(abData, 0, nBytesRead);
                         }
                     }
                 } catch (Exception e) {
 
                 } finally {
-                    /**
-                     * Drains queued data from the line by continuing data I/O
-                     * until the data line's internal buffer has been emptied
-                     */
                     auline.drain();
-                    /**
-                     * Closes the line, indicating that any system resources in
-                     * use by the line can be released
-                     */
                     auline.close();
                 }
             } else {

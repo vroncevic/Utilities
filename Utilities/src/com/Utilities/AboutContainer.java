@@ -1,3 +1,8 @@
+/**
+ * AboutContainer.java
+ * Created on Feb 25, 2016, 21:30:52 PM
+ * Copyright(c) Frobas d.o.o.
+ */
 package com.Utilities;
 
 import javax.swing.ImageIcon;
@@ -9,27 +14,12 @@ import javax.swing.ImageIcon;
  */
 public class AboutContainer extends FormContainer {
 
-    /**
-     * Initial constructor
-     *
-     * @param AppClass parent class
-     */
     public AboutContainer(Object AppClass) {
         super();
-        setAppLogo(new ImageIcon(AppClass.getClass().getResource("/resource/logo.png")));
-        setAppIcon(new ImageIcon(AppClass.getClass().getResource("/resource/icon.png")));
+        super.setAppLogo(new ImageIcon(AppClass.getClass().getResource("/resource/logo.png")));
+        super.setAppIcon(new ImageIcon(AppClass.getClass().getResource("/resource/icon.png")));
     }
 
-    /**
-     * Constructor with parameters
-     *
-     * @param Title string for frame title
-     * @param CompanyName string 
-     * @param AppName string
-     * @param AppInfo string
-     * @param AppLogo image icon
-     * @param AppIcon image icon
-     */
     public AboutContainer(String Title, String CompanyName, String AppName, String AppInfo, ImageIcon AppLogo, ImageIcon AppIcon) {
         super(Title, CompanyName, AppName, AppInfo, AppLogo, AppIcon);
     }

@@ -1,3 +1,8 @@
+/**
+ * Logging.java
+ * Created on Feb 25, 2016, 21:27:52 PM
+ * Copyright(c) Frobas d.o.o.
+ */
 package com.Utilities;
 
 import java.io.BufferedWriter;
@@ -17,15 +22,6 @@ import java.util.Date;
  */
 public class Logging {
 
-    /**
-     * Logging informations to LOG file
-     *
-     * @param LogFlag string "info" | "error"
-     * @param Message string with text for LOG file
-     * @param PathLog string absolute path to tool log folder
-     * @param ToolName string application name
-     * @return integer status success 0 else -1
-     */
     public static int logging(String LogFlag, String Message, String PathLog, String ToolName) {
         if ((PathLog != null)) {
             File LogFolder = new File(PathLog);

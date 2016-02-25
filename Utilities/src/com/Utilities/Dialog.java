@@ -1,3 +1,8 @@
+/**
+ * Dialog.java
+ * Created on Feb 25, 2016, 21:26:52 PM
+ * Copyright(c) Frobas d.o.o.
+ */
 package com.Utilities;
 
 import java.awt.Component;
@@ -10,28 +15,12 @@ import javax.swing.JOptionPane;
  */
 public class Dialog {
 
-    /**
-     * Parent component
-     */
     protected Component parentComponent;
 
-    /**
-     * Constructor with parent component
-     *
-     * @param parentComponent
-     */
     public Dialog(Component parentComponent) {
         this.parentComponent = parentComponent;
     }
 
-    /**
-     * ShowDialog display notification with message
-     *
-     * @param notification message to user
-     * @param title of dialog
-     * @param option yes | no, and more
-     * @return status
-     */
     public int ShowDialog(String notification, String title, int option) {
         int status = JOptionPane.showConfirmDialog(parentComponent,
                 notification,
@@ -40,13 +29,6 @@ public class Dialog {
         return status;
     }
 
-    /**
-     * Dismiss dialog
-     *
-     * @param notification message to user
-     * @param title of dialog
-     * @param option dismiss
-     */
     public void Dismiss(String notification, String title, int option) {
         JOptionPane.showMessageDialog(parentComponent, notification,
                 title, option);

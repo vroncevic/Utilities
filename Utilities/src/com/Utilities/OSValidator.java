@@ -1,3 +1,8 @@
+/**
+ * OSValidator.java
+ * Created on Feb 25, 2016, 21:28:52 PM
+ * Copyright(c) Frobas d.o.o.
+ */
 package com.Utilities;
 
 /**
@@ -9,11 +14,6 @@ public class OSValidator {
 
     private static String OS = System.getProperty("os.name").toLowerCase();
 
-    /**
-     * Check is OS windows
-     *
-     * @return for success true else false
-     */
     public static boolean isWindows() {
         boolean status = false;
         if (OS.indexOf("win") >= 0) {
@@ -22,11 +22,6 @@ public class OSValidator {
         return status;
     }
 
-    /**
-     * Check is OS Mac
-     *
-     * @return for success true else false
-     */
     public static boolean isMac() {
         boolean status = false;
         if (OS.indexOf("mac") >= 0) {
@@ -35,11 +30,6 @@ public class OSValidator {
         return status;
     }
 
-    /**
-     * Check is OS Unix
-     *
-     * @return for success true else false
-     */
     public static boolean isUnix() {
         boolean status = false;
         if ((OS.indexOf("nix") >= 0 || OS.indexOf("nux") >= 0 || OS.indexOf("aix") > 0)) {
@@ -48,11 +38,6 @@ public class OSValidator {
         return status;
     }
 
-    /**
-     * Check is OS Solaris
-     *
-     * @return for success true else false
-     */
     public static boolean isSolaris() {
         boolean status = false;
         if ((OS.indexOf("sunos") >= 0)) {

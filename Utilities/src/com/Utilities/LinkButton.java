@@ -1,3 +1,8 @@
+/**
+ * LinkButton.java
+ * Created on Feb 25, 2016, 21:27:52 PM
+ * Copyright(c) Frobas d.o.o.
+ */
 package com.Utilities;
 
 import java.awt.Color;
@@ -23,137 +28,48 @@ import javax.swing.plaf.metal.MetalButtonUI;
 public class LinkButton extends JButton {
 
     private static final long serialVersionUID = -7504564288265905013L;
-
-    /**
-     * ALWAYS_UNDERLINE ALWAYS_UNDERLINE flag
-     */
     public static final int ALWAYS_UNDERLINE = 0;
-
-    /**
-     * HOVER_UNDERLINE HOVER_UNDERLINE flag
-     */
     public static final int HOVER_UNDERLINE = 1;
-
-    /**
-     * NEVER_UNDERLINE NEVER_UNDERLINE flag
-     */
     public static final int NEVER_UNDERLINE = 2;
-
-    /**
-     * SYSTEM_DEFAULT SYSTEM_DEFAULT flag
-     */
     public static final int SYSTEM_DEFAULT = 3;
-
-    /**
-     * linkBehavior linkBehavior flag
-     */
     private int linkBehavior;
-
-    /**
-     * Color linkColor linkColor contain color of link button
-     */
     private Color linkColor;
-
-    /**
-     * Color colorPressed colorPressed contain color of pressed link button
-     */
     private Color colorPressed;
-
-    /**
-     * Color visitedLinkColor visitedLinkColor contain color for visited link
-     * button
-     */
     private Color visitedLinkColor;
-
-    /**
-     * Color disabledLinkColor disabledLinkColor contain color for disable link
-     * button
-     */
     private Color disabledLinkColor;
-
-    /**
-     * URL buttonURL buttonURL contain URL
-     */
     private URL buttonURL;
-
-    /**
-     * Action defaultAction defaultAction
-     */
     private Action defaultAction;
-
-    /**
-     * boolean isLinkVisited isLinkVisited flag for checking link
-     */
     private boolean isLinkVisited;
 
     public LinkButton() {
         this(null, null, null);
     }
 
-    /**
-     * LinkButton constructor
-     *
-     * @param action contain Action on press
-     */
     public LinkButton(Action action) {
         this();
-        setAction(action);
+        super.setAction(action);
     }
 
-    /**
-     * LinkButton constructor
-     *
-     * @param icon contain image
-     */
     public LinkButton(Icon icon) {
         this(null, icon, null);
     }
 
-    /**
-     * LinkButton constructor
-     *
-     * @param s contain name
-     */
     public LinkButton(String s) {
         this(s, null, null);
     }
 
-    /**
-     * LinkButton constructor
-     *
-     * @param url contain URL
-     */
     public LinkButton(URL url) {
         this(null, null, url);
     }
 
-    /**
-     * LinkButton constructor
-     *
-     * @param s contain name
-     * @param url contain URL
-     */
     public LinkButton(String s, URL url) {
         this(s, null, url);
     }
 
-    /**
-     * LinkButton constructor
-     *
-     * @param icon contain image
-     * @param url contain image
-     */
     public LinkButton(Icon icon, URL url) {
         this(null, icon, url);
     }
 
-    /**
-     * LinkButton constructor
-     *
-     * @param text contain name
-     * @param icon contain image
-     * @param url contain URL
-     */
     public LinkButton(String text, Icon icon, URL url) {
         super(text, icon);
         linkBehavior = SYSTEM_DEFAULT;
@@ -161,46 +77,30 @@ public class LinkButton extends JButton {
         colorPressed = Color.red;
         visitedLinkColor = new Color(128, 0, 128);
         if (text == null && url != null) {
-            setText(url.toExternalForm());
+            super.setText(url.toExternalForm());
         }
         setLinkURL(url);
-        setCursor(Cursor.getPredefinedCursor(12));
-        setBorderPainted(false);
-        setContentAreaFilled(false);
-        setRolloverEnabled(true);
-        addActionListener(defaultAction);
+        super.setCursor(Cursor.getPredefinedCursor(12));
+        super.setBorderPainted(false);
+        super.setContentAreaFilled(false);
+        super.setRolloverEnabled(true);
+        super.addActionListener(defaultAction);
     }
 
-    /**
-     *
-     * updateUI set UI for this component
-     */
     @Override
     public void updateUI() {
         setUI(BasicLinkButtonUI.createUI(this));
     }
 
-    /**
-     * setDefault set default UI
-     */
     public void setDefault() {
         UIManager.getDefaults().put("LinkButtonUI", "BasicLinkButtonUI");
     }
 
-    /**
-     * getUIClassID UI class ID return
-     *
-     * @return
-     */
     @Override
     public String getUIClassID() {
         return "LinkButtonUI";
     }
 
-    /**
-     *
-     * setupToolTipText set tool tip text
-     */
     protected void setupToolTipText() {
         String tip = null;
         if (buttonURL != null) {
@@ -209,11 +109,6 @@ public class LinkButton extends JButton {
         setToolTipText(tip);
     }
 
-    /**
-     * setLinkBehavior set behavior
-     *
-     * @param bnew contain new behavior
-     */
     public void setLinkBehavior(int bnew) {
         checkLinkBehaviour(bnew);
         int old = linkBehavior;
@@ -222,11 +117,6 @@ public class LinkButton extends JButton {
         repaint();
     }
 
-    /**
-     * checkLinkBehaviour
-     *
-     * @param beha current behavior
-     */
     private void checkLinkBehaviour(int beha) {
         if (beha != ALWAYS_UNDERLINE && beha != HOVER_UNDERLINE
                 && beha != NEVER_UNDERLINE && beha != SYSTEM_DEFAULT) {
@@ -234,20 +124,10 @@ public class LinkButton extends JButton {
         }
     }
 
-    /**
-     * getLinkBehavior get behavior
-     *
-     * @return linkBehavior
-     */
     public int getLinkBehavior() {
         return linkBehavior;
     }
 
-    /**
-     * setLinkColor set color
-     *
-     * @param color contain color
-     */
     public void setLinkColor(Color color) {
         Color colorOld = linkColor;
         linkColor = color;
@@ -255,20 +135,10 @@ public class LinkButton extends JButton {
         repaint();
     }
 
-    /**
-     * getLinkColor get color
-     *
-     * @return linkColor
-     */
     public Color getLinkColor() {
         return linkColor;
     }
 
-    /**
-     * setActiveLinkColor active link
-     *
-     * @param colorNew contain fresh color
-     */
     public void setActiveLinkColor(Color colorNew) {
         Color colorOld = colorPressed;
         colorPressed = colorNew;
@@ -276,20 +146,10 @@ public class LinkButton extends JButton {
         repaint();
     }
 
-    /**
-     * getActiveLinkColor get active color
-     *
-     * @return colorPressed
-     */
     public Color getActiveLinkColor() {
         return colorPressed;
     }
 
-    /**
-     * setDisabledLinkColor disable link buttion
-     *
-     * @param color contain color
-     */
     public void setDisabledLinkColor(Color color) {
         Color colorOld = disabledLinkColor;
         disabledLinkColor = color;
@@ -299,20 +159,10 @@ public class LinkButton extends JButton {
         }
     }
 
-    /**
-     * getDisabledLinkColor get disable color
-     *
-     * @return disabledLinkColor
-     */
     public Color getDisabledLinkColor() {
         return disabledLinkColor;
     }
 
-    /**
-     * setVisitedLinkColor set color link is visited
-     *
-     * @param colorNew
-     */
     public void setVisitedLinkColor(Color colorNew) {
         Color colorOld = visitedLinkColor;
         visitedLinkColor = colorNew;
@@ -320,29 +170,14 @@ public class LinkButton extends JButton {
         repaint();
     }
 
-    /**
-     * getVisitedLinkColor get color if link is visited
-     *
-     * @return visitedLinkColor
-     */
     public Color getVisitedLinkColor() {
         return visitedLinkColor;
     }
 
-    /**
-     * getLinkURL get URL
-     *
-     * @return buttonURL contain URL
-     */
     public URL getLinkURL() {
         return buttonURL;
     }
 
-    /**
-     * setLinkURL set URL
-     *
-     * @param url for setting URL
-     */
     public void setLinkURL(URL url) {
         URL urlOld = buttonURL;
         buttonURL = url;
@@ -352,11 +187,6 @@ public class LinkButton extends JButton {
         repaint();
     }
 
-    /**
-     * setLinkVisited - link is visited
-     *
-     * @param flagNew contain value for visited
-     */
     public void setLinkVisited(boolean flagNew) {
         boolean flagOld = isLinkVisited;
         isLinkVisited = flagNew;
@@ -364,40 +194,20 @@ public class LinkButton extends JButton {
         repaint();
     }
 
-    /**
-     * isLinkVisited check state of link
-     *
-     * @return isLinkVisited current state of visited
-     */
     public boolean isLinkVisited() {
         return isLinkVisited;
     }
 
-    /**
-     * setDefaultAction set Action to link button
-     *
-     * @param actionNew contain Action
-     */
     public void setDefaultAction(Action actionNew) {
         Action actionOld = defaultAction;
         defaultAction = actionNew;
         firePropertyChange("defaultAction", actionOld, actionNew);
     }
 
-    /**
-     * getDefaultAction nothing
-     *
-     * @return defaultAction for link button
-     */
     public Action getDefaultAction() {
         return defaultAction;
     }
 
-    /**
-     * paramString generate parameter for link button
-     *
-     * @return string
-     */
     @Override
     protected String paramString() {
         String str;
@@ -427,35 +237,18 @@ public class LinkButton extends JButton {
     }
 }
 
-/**
- * BasicLinkButtonUI class for UI link button
- *
- * @author Vladimir Roncevic <vladimir.roncevic@frobas.com>
- */
 class BasicLinkButtonUI extends MetalButtonUI {
 
     private static final BasicLinkButtonUI ui = new BasicLinkButtonUI();
 
-    /**
-     * Basic constructor
-     */
     public BasicLinkButtonUI() {
 
     }
 
-    /**
-     * createUI create component
-     *
-     * @param jcomponent
-     * @return ComponentUI
-     */
     public static ComponentUI createUI(JComponent jcomponent) {
         return ui;
     }
 
-    /**
-     * paintText make hyper link text
-     */
     @Override
     protected void paintText(Graphics g, JComponent com, Rectangle rect, String s) {
         LinkButton bn = (LinkButton) com;

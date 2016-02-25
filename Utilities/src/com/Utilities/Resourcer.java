@@ -1,3 +1,8 @@
+/**
+ * Resourcer.java
+ * Created on Feb 25, 2016, 21:59:52 PM
+ * Copyright(c) Frobas d.o.o.
+ */
 package com.Utilities;
 
 import java.awt.image.BufferedImage;
@@ -12,12 +17,6 @@ import javax.imageio.ImageIO;
  */
 public class Resourcer {
 
-    /**
-     *
-     * @param images
-     * @param AppClass
-     * @return
-     */
     public static BufferedImage[] loadresources(ArrayList<String> images, Object AppClass) {
         BufferedImage[] resource_images = new BufferedImage[images.size()];    
         for (int i = 0; i < images.size(); i++) {

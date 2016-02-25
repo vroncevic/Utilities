@@ -1,3 +1,8 @@
+/**
+ * Help.java
+ * Created on Feb 25, 2016, 21:35:52 PM
+ * Copyright(c) Frobas d.o.o.
+ */
 package com.Utilities.Help;
 
 import com.Utilities.HelpContainer;
@@ -17,23 +22,18 @@ public class Help extends javax.swing.JFrame {
 
     private static final long serialVersionUID = -648436326292098599L;
 
-    /**
-     * Creates new form Help
-     *
-     * @param content
-     */
     public Help(HelpContainer content) {
         initComponents();
-        setTitle(content.getTitle());
+        super.setTitle(content.getTitle());
         this.LogoLabel.setIcon(content.getAppLogo());
-        setIconImage(content.getAppIcon().getImage());
+        super.setIconImage(content.getAppIcon().getImage());
         Dimension dim = Toolkit.getDefaultToolkit().getScreenSize();
-        setLocation(dim.width / 2 - this.getSize().width / 2, dim.height / 2 - this.getSize().height / 2);
-        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        super.setLocation(dim.width / 2 - super.getSize().width / 2, dim.height / 2 - super.getSize().height / 2);
+        super.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         HTMLScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
         HTMLPage.setContentType("text/html");
         HTMLPage.setText(content.getAppInfo());
-        addWindowListener(new WindowAdapter() {
+        super.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
                 setVisible(false);
