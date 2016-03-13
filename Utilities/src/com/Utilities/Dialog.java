@@ -1,7 +1,7 @@
 /**
  * Dialog.java
  * Created on Feb 25, 2016, 21:26:52 PM
- * Copyright(c) Frobas d.o.o.
+ * Copyright(c) Frobas doo
  */
 package com.Utilities;
 
