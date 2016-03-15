@@ -48,7 +48,7 @@ public class About extends javax.swing.JFrame {
         CompanyName = new javax.swing.JLabel();
         CloseAbout = new javax.swing.JButton();
         AppName = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
+        AppAboutScrollPanel = new javax.swing.JScrollPane();
         AppInfo = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -98,7 +98,7 @@ public class About extends javax.swing.JFrame {
         AppInfo.setBackground(new java.awt.Color(238, 238, 238));
         AppInfo.setColumns(20);
         AppInfo.setRows(5);
-        jScrollPane1.setViewportView(AppInfo);
+        AppAboutScrollPanel.setViewportView(AppInfo);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -112,7 +112,7 @@ public class About extends javax.swing.JFrame {
                 .addGap(30, 30, 30))
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
+                .addComponent(AppAboutScrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 240, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -134,7 +134,7 @@ public class About extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(AppName)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                .addComponent(AppAboutScrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
                 .addComponent(CloseAbout, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
@@ -148,12 +148,12 @@ public class About extends javax.swing.JFrame {
     }//GEN-LAST:event_CloseAboutActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JScrollPane AppAboutScrollPanel;
     private javax.swing.JTextArea AppInfo;
     private javax.swing.JLabel AppName;
     private javax.swing.JButton CloseAbout;
     private javax.swing.JLabel CompanyName;
     private javax.swing.JLabel LogoLabel;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel logoPanel;
     // End of variables declaration//GEN-END:variables
 }

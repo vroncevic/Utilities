@@ -21,7 +21,7 @@ public class Resourcer {
         BufferedImage[] resource_images = new BufferedImage[images.size()];    
         for (int i = 0; i < images.size(); i++) {
             String img = images.get(i);
-            BufferedImage bufferedImg = null;
+            BufferedImage bufferedImg;
             try {
                 bufferedImg = ImageIO.read(AppClass.getClass().getResource(img));
                 resource_images[i] = bufferedImg;

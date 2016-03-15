@@ -48,7 +48,7 @@
           </Group>
           <Group type="102" attributes="0">
               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="240" max="32767" attributes="0"/>
+              <Component id="AppAboutScrollPanel" pref="240" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
           <Group type="102" attributes="0">
@@ -76,7 +76,7 @@
               <EmptySpace max="-2" attributes="0"/>
               <Component id="AppName" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="153" max="32767" attributes="0"/>
+              <Component id="AppAboutScrollPanel" pref="153" max="32767" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="CloseAbout" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
@@ -152,7 +152,7 @@
         <Property name="text" type="java.lang.String" value="Application name and version"/>
       </Properties>
     </Component>
-    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+    <Container class="javax.swing.JScrollPane" name="AppAboutScrollPanel">
       <AuxValues>
         <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
       </AuxValues>
