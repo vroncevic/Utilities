@@ -25,5 +25,5 @@ Copyright (C) 2016 by https://github.com/vroncevic/Utilities
 This tool is free software; you can redistribute it and/or modify it.
 
 ![alt tag](https://raw.githubusercontent.com/vroncevic/Utilities/master/java_logo.png)
-![alt tag](https://raw.githubusercontent.com/vroncevic/Utilities/master/linux_logo.jpg)
+![alt tag](https://raw.githubusercontent.com/vroncevic/Utilities/master/linux_logo.png)
 
